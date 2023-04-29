@@ -1,6 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const http = require('http').createServer(app);
 const cors = require('cors');
@@ -10,7 +11,7 @@ const generateID = () => Math.random().toString(36).substring(2, 10);
 
 const socketIO = require('socket.io')(http, {
   cors: {
-    origin: '*',
+    origin: process.env.CLIENT_URL || '*',
   },
 });
 

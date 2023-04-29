@@ -12,7 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //👇🏻 Websockets configuration
 import { io } from 'socket.io-client';
-const socket = io('http://localhost:4000');
+const socket = io(process.env.REACT_APP_API_ENDPOINT || 'http://localhost:4000');
 
 const App = () => {
   return (
